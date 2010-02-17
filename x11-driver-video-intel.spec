@@ -6,7 +6,7 @@
 
 Name: x11-driver-video-intel
 Version: 2.10.0
-Release: %mkrel 2
+Release: %mkrel 3
 Summary: X.org driver for Intel graphics controllers
 Group: System/X11
 URL: http://xorg.freedesktop.org
@@ -29,6 +29,7 @@ Conflicts: xorg-x11-server < 7.0
 Obsoletes: x11-driver-video-intel13 <= 1.9.94
 
 Obsoletes: x11-driver-video-i810
+Obsoletes: x11-driver-video-i810-downscaling
 
 # Mandriva patches
 Patch300: 0300-Mandriva-fix-check-vt-switch.patch
