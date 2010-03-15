@@ -6,7 +6,7 @@
 
 Name: x11-driver-video-intel
 Version: 2.10.901
-Release: %mkrel 1
+Release: %mkrel 2
 Summary: X.org driver for Intel graphics controllers
 Group: System/X11
 URL: http://xorg.freedesktop.org
@@ -30,30 +30,14 @@ Obsoletes: x11-driver-video-intel13 <= 1.9.94
 
 Obsoletes: x11-driver-video-i810
 Obsoletes: x11-driver-video-i810-downscaling
+Obsoletes: x11-driver-video-intel-fast-i830
 
 # Mandriva patches
 Patch300: 0300-Mandriva-fix-check-vt-switch.patch
 Patch301: 0301-fix-NoneBG-support.patch
 
-# patches from Moblin to make X start faster on i830
-Patch500: 0500-i830-002_avoid_duplicate_SaveHWState.patch
-Patch501: 0501-i830-004_reduce_driver_boottime.patch
-Patch502: 0502-i830-005_disable_sdvo_TV_port_restoreHW.patch
-Patch503: 0503-i830-006_disable_check_lvds_panelpower_status.patch
-
 %description
 x11-driver-video-intel is the X.org driver for Intel video chipsets.
-
-%if 0
-%package fast-i830
-Summary: X.org driver for Intel graphics controllers optimized for i830
-Group: System/X11
-Requires(post): update-alternatives >= 1.9.0
-Requires(postun): update-alternatives >= 1.9.0
-
-%description fast-i830
-x11-driver-video-intel is the X.org driver for Intel video chipsets.
-%endif
 
 %prep
 %setup -q -n xf86-video-intel-%{version}
@@ -64,29 +48,10 @@ x11-driver-video-intel is the X.org driver for Intel video chipsets.
 # Make sure duplicated code isn't compiled and only the server version is used
 rm -fr src/modes
 
-%if 0
-rm -rf fast-i830
-cp -a . ../fast-i830
-mv ../fast-i830 .
-pushd fast-i830
-%patch500 -p1
-%patch501 -p1
-%patch502 -p1
-%patch503 -p1
-popd
-%endif
-
 %build
 autoreconf -ifs
 %configure
 %make
-%if 0
-pushd fast-i830
-autoreconf -ifs
-%configure
-%make
-popd
-%endif
 
 %install
 rm -rf %{buildroot}
@@ -97,14 +62,15 @@ rm -f %{buildroot}%{_mandir}/man4/i810.4*
 mkdir -p %{buildroot}%{_libdir}/xorg/modules/drivers/intel-common
 mv %{buildroot}%{_libdir}/xorg/modules/drivers/intel_drv.* %{buildroot}%{_libdir}/xorg/modules/drivers/intel-common
 
-%if 0
-mkdir -p %{buildroot}%{_libdir}/xorg/modules/drivers/intel-fast-i830
-install fast-i830/src/.libs/intel_drv.so %{buildroot}%{_libdir}/xorg/modules/drivers/intel-fast-i830/
-install fast-i830/src/.libs/intel_drv.lai %{buildroot}%{_libdir}/xorg/modules/drivers/intel-fast-i830/intel_drv.la
-%endif
-
 %clean
 rm -rf %{buildroot}
+
+# (cg) NB. Alternatives are used here due to the use of a now obsoleted
+# fast-i830 subpackage for some netbook chipsets.
+# The alternatives system currently remains but only one pacakge will provide
+# the 'alternative'. I will leave this in place for a while just incase
+# we need to resurrect a chip-specific package again in the near future
+# but if it proves unnecessary it should be tidied up.
 
 # use posttrans so that files from old package are removed first
 %posttrans
@@ -112,22 +78,9 @@ rm -rf %{buildroot}
   --install %{_libdir}/xorg/modules/drivers/intel_drv.so x11-intel-so %{_libdir}/xorg/modules/drivers/intel-common/intel_drv.so 20 \
   --slave   %{_libdir}/xorg/modules/drivers/intel_drv.la x11-intel-la %{_libdir}/xorg/modules/drivers/intel-common/intel_drv.la
 
-%if 0
-%posttrans fast-i830
-%{_sbindir}/update-alternatives \
-  --install %{_libdir}/xorg/modules/drivers/intel_drv.so x11-intel-so %{_libdir}/xorg/modules/drivers/intel-fast-i830/intel_drv.so 10 \
-  --slave   %{_libdir}/xorg/modules/drivers/intel_drv.la x11-intel-la %{_libdir}/xorg/modules/drivers/intel-fast-i830/intel_drv.la
-%endif
-
 %postun
 [ $1 = 0 ] || exit 0
 %{_sbindir}/update-alternatives --remove x11-intel-so %{_libdir}/xorg/modules/drivers/intel-common/intel_drv.so
-
-%if 0
-%postun fast-i830
-[ $1 = 0 ] || exit 0
-%{_sbindir}/update-alternatives --remove x11-intel-so %{_libdir}/xorg/modules/drivers/intel-fast-i830/intel_drv.so
-%endif
 
 %files
 %defattr(-,root,root)
@@ -147,10 +100,3 @@ rm -rf %{buildroot}
 #%{_libdir}/xorg/modules/drivers/sil164.*
 #%{_libdir}/xorg/modules/drivers/tfp410.*
 %{_mandir}/man4/intel.4*
-
-%if 0
-%files fast-i830
-%defattr(-,root,root)
-%dir %{_libdir}/xorg/modules/drivers/intel-fast-i830
-%{_libdir}/xorg/modules/drivers/intel-fast-i830/intel_drv.*
-%endif
