@@ -22,6 +22,7 @@ BuildRequires: x11-proto-devel >= 1.0.0
 BuildRequires: x11-server-devel >= 1.6.1-3
 BuildRequires: x11-util-macros >= 1.0.1
 BuildRequires: GL-devel
+BuildRequires: libudev-devel
 Requires(post): update-alternatives >= 1.9.0
 Requires(postun): update-alternatives >= 1.9.0
 
