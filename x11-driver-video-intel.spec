@@ -5,8 +5,8 @@
 %define _disable_ld_no_undefined 1
 
 Name: x11-driver-video-intel
-Version: 2.10.903
-Release: %mkrel 2
+Version: 2.11.0
+Release: %mkrel 1
 Summary: X.org driver for Intel graphics controllers
 Group: System/X11
 URL: http://xorg.freedesktop.org
