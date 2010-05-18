@@ -6,7 +6,7 @@
 
 Name: x11-driver-video-intel
 Version: 2.11.0
-Release: %mkrel 2
+Release: %mkrel 3
 Summary: X.org driver for Intel graphics controllers
 Group: System/X11
 URL: http://xorg.freedesktop.org
@@ -33,6 +33,22 @@ Obsoletes: x11-driver-video-i810
 Obsoletes: x11-driver-video-i810-downscaling
 Obsoletes: x11-driver-video-intel-fast-i830
 
+# Upstream patches
+Patch100:0100-i830-render-use-tiling-bits-where-possible.patch
+Patch101:0101-i915-render-use-tiling-bits-where-possible.patch
+Patch102:0102-uxa-Extract-sub-region-from-in-memory-buffers.patch
+Patch103:0103-uxa-Transform-composites-with-a-simple-translation-i.patch
+Patch104:0104-uxa-Rearrange-checking-and-preparing-of-composite-te.patch
+Patch105:0105-uxa-i915-Handle-SourcePict-through-uxa_composite.patch
+Patch106:0106-uxa-Protect-against-valid-SourcePict-in-uxa_acquire_.patch
+Patch107:0107-uxa-Recheck-texture-after-acquiring-pattern.patch
+Patch108:0108-i830-Remove-incorrectly-mapped-tex-formats.patch
+Patch109:0109-uxa-Parse-BGRA-pixel-formats.patch
+Patch110:0110-uxa-Disable-compatible-src-xrgb-and-dst-argb.patch
+Patch111:0111-uxa-Check-the-w-scaling-component-is-1-for-an-transl.patch
+Patch112:0112-uxa-Avoid-using-blits-when-with-PictFilterConvolutio.patch
+Patch113:0113-i830-Encode-surface-bpp-into-format.patch
+
 # Mandriva patches
 Patch300: 0300-Mandriva-fix-check-vt-switch.patch
 Patch301: 0301-fix-NoneBG-support.patch
@@ -49,12 +65,9 @@ x11-driver-video-intel is the X.org driver for Intel video chipsets.
 
 %apply_patches
 
-# Make sure duplicated code isn't compiled and only the server version is used
-rm -fr src/modes
-
-%build
 autoreconf -ifs
-%configure
+%build
+%configure2_5x
 %make
 
 %install
