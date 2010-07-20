@@ -5,8 +5,8 @@
 %define _disable_ld_no_undefined 1
 
 Name: x11-driver-video-intel
-Version: 2.11.0
-Release: %mkrel 5
+Version: 2.12.0
+Release: %mkrel 1
 Summary: X.org driver for Intel graphics controllers
 Group: System/X11
 URL: http://xorg.freedesktop.org
@@ -32,24 +32,6 @@ Obsoletes: x11-driver-video-intel13 <= 1.9.94
 Obsoletes: x11-driver-video-i810
 Obsoletes: x11-driver-video-i810-downscaling
 Obsoletes: x11-driver-video-intel-fast-i830
-
-# Upstream patches
-Patch100:0100-i830-render-use-tiling-bits-where-possible.patch
-Patch101:0101-i915-render-use-tiling-bits-where-possible.patch
-Patch102:0102-render-tell-the-kernel-explicitly-when-fences-are-ne.patch
-Patch103:0103-uxa-Extract-sub-region-from-in-memory-buffers.patch
-Patch104:0104-uxa-Transform-composites-with-a-simple-translation-i.patch
-Patch105:0105-uxa-Rearrange-checking-and-preparing-of-composite-te.patch
-Patch106:0106-uxa-i915-Handle-SourcePict-through-uxa_composite.patch
-Patch107:0107-uxa-Protect-against-valid-SourcePict-in-uxa_acquire_.patch
-Patch108:0108-uxa-Recheck-texture-after-acquiring-pattern.patch
-Patch109:0109-i830-Remove-incorrectly-mapped-tex-formats.patch
-Patch110:0110-uxa-Parse-BGRA-pixel-formats.patch
-Patch111:0111-uxa-Disable-compatible-src-xrgb-and-dst-argb.patch
-Patch112:0112-uxa-Check-the-w-scaling-component-is-1-for-an-transl.patch
-Patch113:0113-uxa-Avoid-using-blits-when-with-PictFilterConvolutio.patch
-Patch114:0114-uxa-Patterns-are-acquired-at-0-0.patch
-Patch115:0115-i830-Encode-surface-bpp-into-format.patch
 
 
 # Mandriva patches
