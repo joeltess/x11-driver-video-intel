@@ -15,7 +15,7 @@ License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
 
 BuildRequires: libx11-devel >= 1.0.0
-BuildRequires: libdrm-devel >= 2.4.6
+BuildRequires: libdrm-devel >= 2.4.21
 BuildRequires: libxvmc-devel >= 1.0.1
 BuildRequires: xcb-util-devel
 BuildRequires: x11-proto-devel >= 1.0.0
