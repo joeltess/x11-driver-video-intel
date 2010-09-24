@@ -5,7 +5,7 @@
 %define _disable_ld_no_undefined 1
 
 Name: x11-driver-video-intel
-Version: 2.12.0
+Version: 2.12.901
 Release: %mkrel 1
 Summary: X.org driver for Intel graphics controllers
 Group: System/X11
@@ -35,12 +35,10 @@ Obsoletes: x11-driver-video-intel-fast-i830
 
 
 # Mandriva patches
-Patch300: 0300-Mandriva-fix-check-vt-switch.patch
-Patch301: 0301-fix-NoneBG-support.patch
-Patch302: 0302-Add-mbp_backlight-to-the-backlight-interfaces-as-req.patch
-
-# Fedora patches
-Patch0400: 0400-send-randr-hotplug-events.patch
+Patch100: 0100-Mandriva-fix-check-vt-switch.patch
+Patch101: 0101-fix-NoneBG-support.patch
+# (cg) Originally from Fedora
+Patch102: 0102-send-randr-hotplug-events.patch
 
 %description
 x11-driver-video-intel is the X.org driver for Intel video chipsets.
