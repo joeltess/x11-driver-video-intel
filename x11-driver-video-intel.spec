@@ -5,7 +5,7 @@
 %define _disable_ld_no_undefined 1
 
 Name: x11-driver-video-intel
-Version: 2.12.901
+Version: 2.12.902
 Release: %mkrel 1
 Summary: X.org driver for Intel graphics controllers
 Group: System/X11
@@ -15,7 +15,7 @@ License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
 
 BuildRequires: libx11-devel >= 1.0.0
-BuildRequires: libdrm-devel >= 2.4.21
+BuildRequires: libdrm-devel >= 2.4.22
 BuildRequires: libxvmc-devel >= 1.0.1
 BuildRequires: xcb-util-devel
 BuildRequires: x11-proto-devel >= 1.0.0
