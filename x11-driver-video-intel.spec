@@ -6,7 +6,7 @@
 
 Name: x11-driver-video-intel
 Version: 2.13.0
-Release: %mkrel 3
+Release: %mkrel 4
 Summary: X.org driver for Intel graphics controllers
 Group: System/X11
 URL: http://xorg.freedesktop.org
@@ -36,7 +36,8 @@ Obsoletes: x11-driver-video-intel-fast-i830
 
 # Mandriva patches
 Patch100: 0100-Mandriva-fix-check-vt-switch.patch
-Patch101: 0101-fix-NoneBG-support.patch
+# (cg) Disable for now as it hits an assert on Xserver 1.9
+#Patch101: 0101-fix-NoneBG-support.patch
 Patch102: 0102-intel-Listen-for-hotplug-uevents-V2.patch
 
 %description
