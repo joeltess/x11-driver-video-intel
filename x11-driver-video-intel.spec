@@ -6,7 +6,7 @@
 
 Name: x11-driver-video-intel
 Version: 2.13.0
-Release: %mkrel 4
+Release: %mkrel 5
 Summary: X.org driver for Intel graphics controllers
 Group: System/X11
 URL: http://xorg.freedesktop.org
@@ -25,6 +25,7 @@ BuildRequires: GL-devel
 BuildRequires: libudev-devel
 Requires(post): update-alternatives >= 1.9.0
 Requires(postun): update-alternatives >= 1.9.0
+Requires: %(eval "xserver-sdk-abi-requires videodrv")
 
 Conflicts: xorg-x11-server < 7.0
 Obsoletes: x11-driver-video-intel13 <= 1.9.94
