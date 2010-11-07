@@ -25,7 +25,7 @@ BuildRequires: GL-devel
 BuildRequires: libudev-devel
 Requires(post): update-alternatives >= 1.9.0
 Requires(postun): update-alternatives >= 1.9.0
-Requires: %(eval "xserver-sdk-abi-requires videodrv")
+Requires: x11-server-common %(xserver-sdk-abi-requires videodrv)
 
 Conflicts: xorg-x11-server < 7.0
 Obsoletes: x11-driver-video-intel13 <= 1.9.94
