@@ -39,7 +39,6 @@ Obsoletes: x11-driver-video-intel-fast-i830
 Patch100: 0100-Mandriva-fix-check-vt-switch.patch
 # (cg) Disable for now as it hits an assert on Xserver 1.9
 #Patch101: 0101-fix-NoneBG-support.patch
-Patch102: 0102-intel-Listen-for-hotplug-uevents-V2.patch
 
 %description
 x11-driver-video-intel is the X.org driver for Intel video chipsets.
