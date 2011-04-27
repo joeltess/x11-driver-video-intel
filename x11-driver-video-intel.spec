@@ -1,12 +1,6 @@
-# (anssi) The unversioned symlink of XvMC library must be present in
-# %{_libdir} during normal use, as libXvMC uses that name for dlopening.
-# Our devel requires finder catches that, hence this exception:
-%define _requires_exceptions devel(
-%define _disable_ld_no_undefined 1
-
 Name: x11-driver-video-intel
 Version: 2.15.0
-Release: %mkrel 1
+Release: %mkrel 2
 Summary: X.org driver for Intel graphics controllers
 Group: System/X11
 URL: http://xorg.freedesktop.org
@@ -55,6 +49,7 @@ x11-driver-video-intel is the X.org driver for Intel video chipsets.
 %install
 rm -rf %{buildroot}
 %makeinstall_std
+rm -f %{buildroot}%{_libdir}/*.so %{buildroot}%{_libdir}/*.la %{buildroot}%{_libdir}/xorg/modules/drivers/intel-common/intel_drv.la
 rm -f %{buildroot}%{_libdir}/xorg/modules/drivers/i810_drv.*
 rm -f %{buildroot}%{_mandir}/man4/i810.4*
 
@@ -83,19 +78,10 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%{_libdir}/libI810XvMC.la
-%{_libdir}/libI810XvMC.so
 %{_libdir}/libI810XvMC.so.1
 %{_libdir}/libI810XvMC.so.1.0.0
-%{_libdir}/libIntelXvMC.la
-%{_libdir}/libIntelXvMC.so
 %{_libdir}/libIntelXvMC.so.1
 %{_libdir}/libIntelXvMC.so.1.0.0
 %dir %{_libdir}/xorg/modules/drivers/intel-common
 %{_libdir}/xorg/modules/drivers/intel-common/intel_drv.*
-#%{_libdir}/xorg/modules/drivers/ch7017.*
-#%{_libdir}/xorg/modules/drivers/ch7xxx.*
-#%{_libdir}/xorg/modules/drivers/ivch.*
-#%{_libdir}/xorg/modules/drivers/sil164.*
-#%{_libdir}/xorg/modules/drivers/tfp410.*
 %{_mandir}/man4/intel.4*
