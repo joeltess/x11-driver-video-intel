@@ -34,10 +34,6 @@ Patch100:	0100-Mandriva-fix-check-vt-switch.patch
 #Patch101: 0101-fix-NoneBG-support.patch
 
 # Upstream patches
-# Two patches from upstream GIT to fix a crash in KDE4
-# https://bugs.freedesktop.org/show_bug.cgi?id=36319
-Patch200:	x11-driver-video-intel-2.15.0-batch-overflows-BUG36319.patch
-Patch201:	x11-driver-video-intel-2.15.0-video-state-emission-BUG36319.patch
 
 %description
 x11-driver-video-intel is the X.org driver for Intel video chipsets.
