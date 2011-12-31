@@ -1,11 +1,16 @@
 Name:		x11-driver-video-intel
 Version:	2.17.0
-Release:	1
+Release:	2
 Summary:	X.org driver for Intel graphics controllers
 Group:		System/X11
+License:	MIT
 URL:		http://xorg.freedesktop.org
 Source:		http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2
-License:	MIT
+# Mandriva patches
+Patch100:	0100-Mandriva-fix-check-vt-switch.patch
+# (cg) Disable for now as it hits an assert on Xserver 1.9
+#Patch101: 0101-fix-NoneBG-support.patch
+# Upstream patches
 
 BuildRequires:	libx11-devel >= 1.0.0
 BuildRequires:	libdrm-devel >= 2.4.22
@@ -14,7 +19,7 @@ BuildRequires:	xcb-util-devel
 BuildRequires:	x11-proto-devel >= 1.0.0
 BuildRequires:	x11-server-devel >= 1.6.1-3
 BuildRequires:	x11-util-macros >= 1.0.1
-BuildRequires:	GL-devel
+BuildRequires:	pkgconfig(gl)
 BuildRequires:	libudev-devel
 Requires(post):	update-alternatives >= 1.9.0
 Requires(postun): update-alternatives >= 1.9.0
@@ -27,20 +32,11 @@ Obsoletes:	x11-driver-video-i810
 Obsoletes:	x11-driver-video-i810-downscaling
 Obsoletes:	x11-driver-video-intel-fast-i830
 
-
-# Mandriva patches
-Patch100:	0100-Mandriva-fix-check-vt-switch.patch
-# (cg) Disable for now as it hits an assert on Xserver 1.9
-#Patch101: 0101-fix-NoneBG-support.patch
-
-# Upstream patches
-
 %description
 x11-driver-video-intel is the X.org driver for Intel video chipsets.
 
 %prep
-%setup -q -n xf86-video-intel-%{version}
-
+%setup -qn xf86-video-intel-%{version}
 %apply_patches
 
 %build
@@ -74,10 +70,8 @@ mv %{buildroot}%{_libdir}/xorg/modules/drivers/intel_drv.* %{buildroot}%{_libdir
 %{_sbindir}/update-alternatives --remove x11-intel-so %{_libdir}/xorg/modules/drivers/intel-common/intel_drv.so
 
 %files
-%{_libdir}/libI810XvMC.so.1
-%{_libdir}/libI810XvMC.so.1.0.0
-%{_libdir}/libIntelXvMC.so.1
-%{_libdir}/libIntelXvMC.so.1.0.0
+%{_libdir}/libI810XvMC.so.1*
+%{_libdir}/libIntelXvMC.so.1*
 %dir %{_libdir}/xorg/modules/drivers/intel-common
 %{_libdir}/xorg/modules/drivers/intel-common/intel_drv.*
 %{_mandir}/man4/intel.4*
