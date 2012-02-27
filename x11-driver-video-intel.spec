@@ -1,11 +1,11 @@
 Name:		x11-driver-video-intel
-Version:	2.17.0
-Release:	2
+Version:	2.18.0
+Release:	1
 Summary:	X.org driver for Intel graphics controllers
 Group:		System/X11
 License:	MIT
 URL:		http://xorg.freedesktop.org
-Source:		http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2
+Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2
 # Mandriva patches
 Patch100:	0100-Mandriva-fix-check-vt-switch.patch
 # (cg) Disable for now as it hits an assert on Xserver 1.9
@@ -20,7 +20,7 @@ BuildRequires:	x11-proto-devel >= 1.0.0
 BuildRequires:	x11-server-devel >= 1.6.1-3
 BuildRequires:	x11-util-macros >= 1.0.1
 BuildRequires:	pkgconfig(gl)
-BuildRequires:	libudev-devel
+BuildRequires:	pkgconfig(libudev)
 Requires(post):	update-alternatives >= 1.9.0
 Requires(postun): update-alternatives >= 1.9.0
 Requires:	x11-server-common %(xserver-sdk-abi-requires videodrv)
