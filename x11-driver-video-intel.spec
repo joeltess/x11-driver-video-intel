@@ -1,6 +1,6 @@
 Name:		x11-driver-video-intel
 Version:	2.18.0
-Release:	1
+Release:	2
 Summary:	X.org driver for Intel graphics controllers
 Group:		System/X11
 License:	MIT
@@ -17,7 +17,7 @@ BuildRequires:	libdrm-devel >= 2.4.22
 BuildRequires:	libxvmc-devel >= 1.0.1
 BuildRequires:	xcb-util-devel
 BuildRequires:	x11-proto-devel >= 1.0.0
-BuildRequires:	x11-server-devel >= 1.6.1-3
+BuildRequires:	x11-server-devel >= 1.12
 BuildRequires:	x11-util-macros >= 1.0.1
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(libudev)
