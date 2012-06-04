@@ -1,7 +1,7 @@
+Summary:	X.org driver for Intel graphics controllers
 Name:		x11-driver-video-intel
 Version:	2.19.0
 Release:	1
-Summary:	X.org driver for Intel graphics controllers
 Group:		System/X11
 License:	MIT
 URL:		http://xorg.freedesktop.org
@@ -12,22 +12,21 @@ Patch100:	0100-Mandriva-fix-check-vt-switch.patch
 #Patch101: 0101-fix-NoneBG-support.patch
 # Upstream patches
 
-BuildRequires:	libx11-devel >= 1.0.0
-BuildRequires:	libdrm-devel >= 2.4.22
-BuildRequires:	libxvmc-devel >= 1.0.1
-BuildRequires:	xcb-util-devel
-BuildRequires:	x11-proto-devel >= 1.0.0
-BuildRequires:	x11-server-devel >= 1.12
-BuildRequires:	x11-util-macros >= 1.0.1
 BuildRequires:	pkgconfig(gl)
+BuildRequires:	pkgconfig(libdrm)
 BuildRequires:	pkgconfig(libudev)
-Requires(post):	update-alternatives >= 1.9.0
-Requires(postun): update-alternatives >= 1.9.0
+BuildRequires:	pkgconfig(x11)
+BuildRequires:	pkgconfig(xcb-util)
+BuildRequires:	pkgconfig(xorg-macros)
+BuildRequires:	pkgconfig(xorg-server) >= 1.12
+BuildRequires:	pkgconfig(xproto)
+BuildRequires:	pkgconfig(xvmc)
+
+Requires(post,postun):	update-alternatives >= 1.9.0
 Requires:	x11-server-common %(xserver-sdk-abi-requires videodrv)
 
 Conflicts:	xorg-x11-server < 7.0
 Obsoletes:	x11-driver-video-intel13 <= 1.9.94
-
 Obsoletes:	x11-driver-video-i810
 Obsoletes:	x11-driver-video-i810-downscaling
 Obsoletes:	x11-driver-video-intel-fast-i830
