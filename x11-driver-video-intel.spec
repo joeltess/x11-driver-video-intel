@@ -1,7 +1,7 @@
 Summary:	X.org driver for Intel graphics controllers
 Name:		x11-driver-video-intel
 Version:	2.19.0
-Release:	1
+Release:	2
 Group:		System/X11
 License:	MIT
 URL:		http://xorg.freedesktop.org
@@ -14,7 +14,11 @@ Patch100:	0100-Mandriva-fix-check-vt-switch.patch
 
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(libdrm)
-BuildRequires:	pkgconfig(libudev)
+%if %mdvver >= 201200
+BuildRequires:	pkgconfig(udev) >= 186
+%else
+BuildRequires:	pkgconfig(udev)
+%endif
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xcb-util)
 BuildRequires:	pkgconfig(xorg-macros)
