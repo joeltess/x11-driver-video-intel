@@ -1,0 +1,25 @@
+From 0d9ce10af13c99405111e80011cc84db0f450b5b Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Paulo=20C=C3=A9sar=20Pereira=20de=20Andrade?= <paulo@dhcp191.conectiva>
+Date: Fri, 14 Dec 2007 18:43:31 -0200
+Subject: [PATCH 100/102] Mandriva fix/check vt switch.
+
+---
+ src/legacy/i810/i810_accel.c |    2 ++
+ 1 files changed, 2 insertions(+), 0 deletions(-)
+
+diff --git a/src/legacy/i810/i810_accel.c b/src/legacy/i810/i810_accel.c
+index 9aa3e42..00ff43e 100644
+--- a/src/legacy/i810/i810_accel.c
++++ b/src/legacy/i810/i810_accel.c
+@@ -245,6 +245,8 @@ I810Sync(ScrnInfoPtr pScrn)
+    if (I810_DEBUG & (DEBUG_VERBOSE_ACCEL | DEBUG_VERBOSE_SYNC))
+       ErrorF("I810Sync\n");
+ 
++   if (!pScrn->vtSema)
++       return;
+ #ifdef HAVE_DRI1
+    /* VT switching tries to do this.  
+     */
+-- 
+1.7.3
+
