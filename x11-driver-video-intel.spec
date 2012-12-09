@@ -1,7 +1,7 @@
 Summary:	X.org driver for Intel graphics controllers
 Name:		x11-driver-video-intel
-Version:	2.20.9
-Release:	2
+Version:	2.20.15
+Release:	1
 Group:		System/X11
 License:	MIT
 URL:		http://xorg.freedesktop.org
@@ -22,7 +22,7 @@ BuildRequires:	pkgconfig(udev)
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xcb-util)
 BuildRequires:	pkgconfig(xorg-macros)
-BuildRequires:	pkgconfig(xorg-server) >= 1.13
+BuildRequires:	pkgconfig(xorg-server) >= 1.12
 BuildRequires:	pkgconfig(xproto)
 BuildRequires:	pkgconfig(xvmc)
 
