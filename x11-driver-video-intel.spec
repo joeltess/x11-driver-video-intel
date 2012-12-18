@@ -1,6 +1,6 @@
 Summary:	X.org driver for Intel graphics controllers
 Name:		x11-driver-video-intel
-Version:	2.20.15
+Version:	2.20.16
 Release:	1
 Group:		System/X11
 License:	MIT
@@ -14,11 +14,7 @@ Patch100:	0100-Mandriva-fix-check-vt-switch.patch
 
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(libdrm)
-%if %mdvver >= 201200
 BuildRequires:	pkgconfig(udev) >= 186
-%else
-BuildRequires:	pkgconfig(udev)
-%endif
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xcb-util)
 BuildRequires:	pkgconfig(xorg-macros)
