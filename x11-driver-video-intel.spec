@@ -1,6 +1,6 @@
 Summary:	X.org driver for Intel graphics controllers
 Name:		x11-driver-video-intel
-Version:	2.20.16
+Version:	2.20.17
 Release:	1
 Group:		System/X11
 License:	MIT
@@ -74,3 +74,4 @@ mv %{buildroot}%{_libdir}/xorg/modules/drivers/intel_drv.* %{buildroot}%{_libdir
 %dir %{_libdir}/xorg/modules/drivers/intel-common
 %{_libdir}/xorg/modules/drivers/intel-common/intel_drv.*
 %{_mandir}/man4/intel.4*
+
