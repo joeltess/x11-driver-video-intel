@@ -24,6 +24,7 @@ BuildRequires:	pkgconfig(xvmc)
 
 Requires(post,postun):	update-alternatives >= 1.9.0
 Requires:	x11-server-common %(xserver-sdk-abi-requires videodrv)
+Requires:	udev
 
 Conflicts:	xorg-x11-server < 7.0
 Obsoletes:	x11-driver-video-intel13 <= 1.9.94
