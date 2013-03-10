@@ -1,6 +1,9 @@
+# X.org drivers use symbols from the X server
+%global _disable_ld_no_undefined 1
+
 Summary:	X.org driver for Intel graphics controllers
 Name:		x11-driver-video-intel
-Version:	2.20.17
+Version:	2.21.3
 Release:	1
 Group:		System/X11
 License:	MIT
