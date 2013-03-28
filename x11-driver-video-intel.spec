@@ -4,7 +4,7 @@
 Summary:	X.org driver for Intel graphics controllers
 Name:		x11-driver-video-intel
 Version:	2.21.3
-Release:	1
+Release:	2
 Group:		System/X11
 License:	MIT
 URL:		http://xorg.freedesktop.org
