@@ -1,6 +1,2 @@
-removed_sources:
-  xf86-video-intel-2.20.16.tar.bz2: 70f8aba9b0e603276380df6c80a796fa3d7faf8d
-  xf86-video-intel-2.21.3.tar.bz2: e09d16c2a3a4501cd9429f15fb9e5e4137870f8f
-  xf86-video-intel-2.21.5.tar.bz2: 41aaf6ada255b4094cb6b6cab8f990079d676e29
 sources:
-  xf86-video-intel-2.21.6.tar.bz2: 39bb2e6d1721393039047a3b7e0f7c0a3fa71202
+  xf86-video-intel-2.21.7.tar.bz2: 40dfeddc4828ad24d272cc69112202c71855dcdf
