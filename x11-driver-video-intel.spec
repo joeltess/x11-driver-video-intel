@@ -43,7 +43,11 @@ x11-driver-video-intel is the X.org driver for Intel video chipsets.
 %apply_patches
 
 %build
-%configure2_5x
+%configure2_5x \
+		--enable-dri \
+		--enable-sna \
+        --with-default-accel=sna
+
 %make
 
 %install
