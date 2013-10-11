@@ -4,7 +4,7 @@
 Summary:	X.org driver for Intel graphics controllers
 Name:		x11-driver-video-intel
 Version:	2.99.903
-Release:	1
+Release:	2
 Group:		System/X11
 License:	MIT
 URL:		http://xorg.freedesktop.org
@@ -24,6 +24,7 @@ BuildRequires:	pkgconfig(xorg-macros)
 BuildRequires:	pkgconfig(xorg-server) >= 1.12
 BuildRequires:	pkgconfig(xproto)
 BuildRequires:	pkgconfig(xvmc)
+BuildRequires:	pkgconfig(glamor)
 
 Requires(post,postun):	update-alternatives >= 1.9.0
 Requires:	x11-server-common %(xserver-sdk-abi-requires videodrv)
@@ -46,7 +47,8 @@ x11-driver-video-intel is the X.org driver for Intel video chipsets.
 %configure2_5x \
 		--enable-dri \
 		--enable-sna \
-		--with-default-accel=sna
+		--with-default-accel=sna \
+		--enable-glamor
 
 %make
 
