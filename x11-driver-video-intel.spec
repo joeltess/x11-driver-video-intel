@@ -3,8 +3,8 @@
 
 Summary:	X.org driver for Intel graphics controllers
 Name:		x11-driver-video-intel
-Version:	2.99.905
-Release:	5
+Version:	2.99.906
+Release:	1
 Group:		System/X11
 License:	MIT
 URL:		http://xorg.freedesktop.org
@@ -79,8 +79,10 @@ mv %{buildroot}%{_libdir}/xorg/modules/drivers/intel_drv.* %{buildroot}%{_libdir
 %{_sbindir}/update-alternatives --remove x11-intel-so %{_libdir}/xorg/modules/drivers/intel-common/intel_drv.so
 
 %files
+%{_bindir}/intel-virtual-output
 %{_libdir}/libI810XvMC.so.1*
 %{_libdir}/libIntelXvMC.so.1*
 %dir %{_libdir}/xorg/modules/drivers/intel-common
 %{_libdir}/xorg/modules/drivers/intel-common/intel_drv.*
 %{_mandir}/man4/intel.4*
+%{_mandir}/man4/intel-virtual-output.4*
