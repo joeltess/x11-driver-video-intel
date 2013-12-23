@@ -25,6 +25,16 @@ BuildRequires:	pkgconfig(xorg-server) >= 1.12
 BuildRequires:	pkgconfig(xproto)
 BuildRequires:	pkgconfig(xvmc)
 BuildRequires:	pkgconfig(glamor)
+# For intel-virtual-output
+BuildRequires:	pkgconfig(xinerama)
+BuildRequires:	pkgconfig(xrandr)
+BuildRequires:	pkgconfig(xdamage)
+BuildRequires:	pkgconfig(xfixes)
+BuildRequires:	pkgconfig(xcursor)
+BuildRequires:	pkgconfig(xtst)
+BuildRequires:	pkgconfig(xrender)
+BuildRequires:	pkgconfig(xext)
+BuildRequires:	pkgconfig(pixman-1)
 
 Requires(post,postun):	update-alternatives >= 1.9.0
 Requires:	x11-server-common %(xserver-sdk-abi-requires videodrv)
