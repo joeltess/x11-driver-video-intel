@@ -9,6 +9,10 @@ Group:		System/X11
 License:	MIT
 URL:		http://xorg.freedesktop.org
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2
+# For now, Intel GPUs only exist in x86 boards... Remove this if Intel
+# ever comes up with a PCIE graphics card or an ARM SoC with an Intel
+# GPU...
+ExclusiveArch:	%{ix86} x86_64
 # Mandriva patches
 Patch100:	0100-Mandriva-fix-check-vt-switch.patch
 # (cg) Disable for now as it hits an assert on Xserver 1.9
