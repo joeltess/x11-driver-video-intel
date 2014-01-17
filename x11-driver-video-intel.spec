@@ -3,12 +3,16 @@
 
 Summary:	X.org driver for Intel graphics controllers
 Name:		x11-driver-video-intel
-Version:	2.21.14
-Release:	3
+Version:	2.99.906
+Release:	1
 Group:		System/X11
 License:	MIT
 URL:		http://xorg.freedesktop.org
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2
+# For now, Intel GPUs only exist in x86 boards... Remove this if Intel
+# ever comes up with a PCIE graphics card or an ARM SoC with an Intel
+# GPU...
+ExclusiveArch:	%{ix86} x86_64
 # Mandriva patches
 Patch100:	0100-Mandriva-fix-check-vt-switch.patch
 # (cg) Disable for now as it hits an assert on Xserver 1.9
@@ -24,6 +28,17 @@ BuildRequires:	pkgconfig(xorg-macros)
 BuildRequires:	pkgconfig(xorg-server) >= 1.12
 BuildRequires:	pkgconfig(xproto)
 BuildRequires:	pkgconfig(xvmc)
+BuildRequires:	pkgconfig(glamor)
+# For intel-virtual-output
+BuildRequires:	pkgconfig(xinerama)
+BuildRequires:	pkgconfig(xrandr)
+BuildRequires:	pkgconfig(xdamage)
+BuildRequires:	pkgconfig(xfixes)
+BuildRequires:	pkgconfig(xcursor)
+BuildRequires:	pkgconfig(xtst)
+BuildRequires:	pkgconfig(xrender)
+BuildRequires:	pkgconfig(xext)
+BuildRequires:	pkgconfig(pixman-1)
 
 Requires(post,postun):	update-alternatives >= 1.9.0
 Requires:	x11-server-common %(xserver-sdk-abi-requires videodrv)
@@ -46,7 +61,8 @@ x11-driver-video-intel is the X.org driver for Intel video chipsets.
 %configure2_5x \
 		--enable-dri \
 		--enable-sna \
-        --with-default-accel=sna
+		--with-default-accel=sna \
+		--enable-glamor
 
 %make
 
@@ -77,9 +93,10 @@ mv %{buildroot}%{_libdir}/xorg/modules/drivers/intel_drv.* %{buildroot}%{_libdir
 %{_sbindir}/update-alternatives --remove x11-intel-so %{_libdir}/xorg/modules/drivers/intel-common/intel_drv.so
 
 %files
+%{_bindir}/intel-virtual-output
 %{_libdir}/libI810XvMC.so.1*
 %{_libdir}/libIntelXvMC.so.1*
 %dir %{_libdir}/xorg/modules/drivers/intel-common
 %{_libdir}/xorg/modules/drivers/intel-common/intel_drv.*
 %{_mandir}/man4/intel.4*
-
+%{_mandir}/man4/intel-virtual-output.4*
