@@ -3,7 +3,7 @@
 
 Summary:	X.org driver for Intel graphics controllers
 Name:		x11-driver-video-intel
-Version:	2.99.910
+Version:	2.99.911
 Release:	1
 Group:		System/X11
 License:	MIT
@@ -100,3 +100,5 @@ mv %{buildroot}%{_libdir}/xorg/modules/drivers/intel_drv.* %{buildroot}%{_libdir
 %{_libdir}/xorg/modules/drivers/intel-common/intel_drv.*
 %{_mandir}/man4/intel.4*
 %{_mandir}/man4/intel-virtual-output.4*
+%{_libexecdir}/xf86-video-intel-backlight-helper
+%{_datadir}/polkit-1/actions/org.x.xf86-video-intel.backlight-helper.policy
