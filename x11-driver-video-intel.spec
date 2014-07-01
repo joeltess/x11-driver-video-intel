@@ -3,8 +3,8 @@
 
 Summary:	X.org driver for Intel graphics controllers
 Name:		x11-driver-video-intel
-Version:	2.99.911
-Release:	2
+Version:	2.99.912
+Release:	1
 Group:		System/X11
 License:	MIT
 URL:		http://xorg.freedesktop.org
@@ -58,7 +58,7 @@ x11-driver-video-intel is the X.org driver for Intel video chipsets.
 %apply_patches
 
 %build
-%configure2_5x \
+%configure \
 		--enable-dri \
 		--enable-sna \
 		--with-default-accel=sna \
