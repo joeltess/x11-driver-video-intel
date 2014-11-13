@@ -4,7 +4,7 @@
 Summary:	X.org driver for Intel graphics controllers
 Name:		x11-driver-video-intel
 Version:	2.99.911
-Release:	1
+Release:	1.1
 Group:		System/X11
 License:	MIT
 URL:		http://xorg.freedesktop.org
@@ -49,6 +49,8 @@ Obsoletes:	x11-driver-video-intel13 <= 1.9.94
 Obsoletes:	x11-driver-video-i810
 Obsoletes:	x11-driver-video-i810-downscaling
 Obsoletes:	x11-driver-video-intel-fast-i830
+# (tpg) this is needed to get vaapi works out of box
+Requires:	vaapi-driver-intel
 
 %description
 x11-driver-video-intel is the X.org driver for Intel video chipsets.
