@@ -51,6 +51,7 @@ Obsoletes:	x11-driver-video-i810-downscaling
 Obsoletes:	x11-driver-video-intel-fast-i830
 # (tpg) this is needed to get vaapi works out of box
 Requires:	vaapi-driver-intel
+Requires:	%{_lib}dri-drivers-intel
 
 %description
 x11-driver-video-intel is the X.org driver for Intel video chipsets.
