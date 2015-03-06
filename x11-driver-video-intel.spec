@@ -3,8 +3,8 @@
 
 Summary:	X.org driver for Intel graphics controllers
 Name:		x11-driver-video-intel
-Version:	2.99.911
-Release:	1.1
+Version:	2.99.917
+Release:	0.1
 Group:		System/X11
 License:	MIT
 URL:		http://xorg.freedesktop.org
@@ -28,7 +28,6 @@ BuildRequires:	pkgconfig(xorg-macros)
 BuildRequires:	pkgconfig(xorg-server) >= 1.12
 BuildRequires:	pkgconfig(xproto)
 BuildRequires:	pkgconfig(xvmc)
-BuildRequires:	pkgconfig(glamor)
 # For intel-virtual-output
 BuildRequires:	pkgconfig(xinerama)
 BuildRequires:	pkgconfig(xrandr)
@@ -61,7 +60,11 @@ x11-driver-video-intel is the X.org driver for Intel video chipsets.
 %apply_patches
 
 %build
-%configure2_5x \
+# As of Xorg 1.15 and clang 3.5-212807, the X server crashes on startup if
+# a driver is built with clang. Let's force gcc for now.
+
+CC=gcc CXX=g++ \
+%configure \
 		--enable-dri \
 		--enable-sna \
 		--with-default-accel=sna \
