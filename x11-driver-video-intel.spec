@@ -38,7 +38,7 @@ BuildRequires:	pkgconfig(xtst)
 BuildRequires:	pkgconfig(xrender)
 BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(pixman-1)
-
+BuildRequires:	pkgconfig(xfont)
 Requires(post,postun):	update-alternatives >= 1.9.0
 Requires:	x11-server-common %(xserver-sdk-abi-requires videodrv)
 Requires:	udev
