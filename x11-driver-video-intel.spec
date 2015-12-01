@@ -1,6 +1,6 @@
 # X.org drivers use symbols from the X server
 %global _disable_ld_no_undefined 1
-%define snapshot 20151122
+%define snapshot 20151201
 
 Summary:	X.org driver for Intel graphics controllers
 Name:		x11-driver-video-intel
