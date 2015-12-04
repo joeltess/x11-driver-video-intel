@@ -12,7 +12,7 @@ URL:		http://xorg.freedesktop.org
 Release:        5
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2
 %else
-Release:	6.%{snapshot}.1
+Release:	6.%{snapshot}.2
 # rm -rf xf86-video-intel && git clone git://anongit.freedesktop.org/xorg/driver/xf86-video-intel && cd xf86-video-intel/
 # git archive --prefix=xf86-video-intel-$(date +%Y%m%d)/ --format=tar HEAD | xz > ../xf86-video-intel-$(date +%Y%m%d).tar.xz
 Source0:        xf86-video-intel-%{snapshot}.tar.xz
@@ -79,14 +79,13 @@ x11-driver-video-intel is the X.org driver for Intel video chipsets.
 
 # As of Xorg 1.15 and clang 3.5-212807, the X server crashes on startup if
 # a driver is built with clang. Let's force gcc for now.
-# (tpg) lets see if this is still true...
-#CC=gcc CXX=g++ \
-
+CC=gcc CXX=g++ \
 %configure \
 		--enable-dri \
 		--enable-sna \
 		--with-default-accel=sna \
-		--enable-glamor
+        --enable-kms-only \
+        --with-default-dri=3
 
 %make
 
