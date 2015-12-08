@@ -80,12 +80,13 @@ x11-driver-video-intel is the X.org driver for Intel video chipsets.
 # As of Xorg 1.15 and clang 3.5-212807, the X server crashes on startup if
 # a driver is built with clang. Let's force gcc for now.
 CC=gcc CXX=g++ \
+CFLAGS="`echo %{optflags} |sed -e 's,-D_FORTIFY_SOURCE=2 -fstack-protector,,;s,-flto,,'`" \
 %configure \
 		--enable-dri \
 		--enable-sna \
 		--with-default-accel=sna \
-        --enable-kms-only \
-        --with-default-dri=3
+		--enable-kms-only \
+		--with-default-dri=3
 
 %make
 
@@ -117,7 +118,7 @@ mv %{buildroot}%{_libdir}/xorg/modules/drivers/intel_drv.* %{buildroot}%{_libdir
 
 %files
 %{_bindir}/intel-virtual-output
-%{_libdir}/libI810XvMC.so.1*
+%optional %{_libdir}/libI810XvMC.so.1*
 %{_libdir}/libIntelXvMC.so.1*
 %dir %{_libdir}/xorg/modules/drivers/intel-common
 %{_libdir}/xorg/modules/drivers/intel-common/intel_drv.*
