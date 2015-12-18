@@ -12,7 +12,7 @@ URL:		http://xorg.freedesktop.org
 Release:        5
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2
 %else
-Release:	6.%{snapshot}.2
+Release:	6.%{snapshot}.3
 # rm -rf xf86-video-intel && git clone git://anongit.freedesktop.org/xorg/driver/xf86-video-intel && cd xf86-video-intel/
 # git archive --prefix=xf86-video-intel-$(date +%Y%m%d)/ --format=tar HEAD | xz > ../xf86-video-intel-$(date +%Y%m%d).tar.xz
 Source0:        xf86-video-intel-%{snapshot}.tar.xz
@@ -86,7 +86,7 @@ CFLAGS="`echo %{optflags} |sed -e 's,-D_FORTIFY_SOURCE=2 -fstack-protector,,;s,-
 		--enable-sna \
 		--with-default-accel=sna \
 		--enable-kms-only \
-		--with-default-dri=3
+		--with-default-dri=2
 
 %make
 
