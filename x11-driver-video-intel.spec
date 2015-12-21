@@ -77,11 +77,9 @@ x11-driver-video-intel is the X.org driver for Intel video chipsets.
 ./autogen.sh
 %endif
 
-# As of Xorg 1.15 and clang 3.5-212807, the X server crashes on startup if
-# a driver is built with clang. Let's force gcc for now.
-# (tpg) let's try with clang
-#CC=gcc CXX=g++ \
-
+# As of Xorg 1.18 and clang 3.7.0-1.1, the screen on a Dell XPS13 flickers
+# if the driver is built with clang. Let's force gcc for now.
+CC=gcc CXX=g++ \
 CFLAGS="`echo %{optflags} |sed -e 's,-D_FORTIFY_SOURCE=2 -fstack-protector,,;s,-flto,,'`" \
 %configure \
 		--enable-dri \
