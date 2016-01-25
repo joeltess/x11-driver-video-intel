@@ -1,6 +1,6 @@
 # X.org drivers use symbols from the X server
 %global _disable_ld_no_undefined 1
-%define snapshot 20151201
+%define snapshot 20160125
 
 Summary:	X.org driver for Intel graphics controllers
 Name:		x11-driver-video-intel
@@ -12,7 +12,7 @@ URL:		http://xorg.freedesktop.org
 Release:        5
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2
 %else
-Release:	6.%{snapshot}.5
+Release:	6.%{snapshot}.6
 # rm -rf xf86-video-intel && git clone git://anongit.freedesktop.org/xorg/driver/xf86-video-intel && cd xf86-video-intel/
 # git archive --prefix=xf86-video-intel-$(date +%Y%m%d)/ --format=tar HEAD | xz > ../xf86-video-intel-$(date +%Y%m%d).tar.xz
 Source0:        xf86-video-intel-%{snapshot}.tar.xz
