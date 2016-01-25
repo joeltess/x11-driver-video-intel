@@ -117,12 +117,9 @@ mv %{buildroot}%{_libdir}/xorg/modules/drivers/intel_drv.* %{buildroot}%{_libdir
 %{_sbindir}/update-alternatives --remove x11-intel-so %{_libdir}/xorg/modules/drivers/intel-common/intel_drv.so
 
 %files
-%{_bindir}/intel-virtual-output
-%optional %{_libdir}/libI810XvMC.so.1*
 %{_libdir}/libIntelXvMC.so.1*
 %dir %{_libdir}/xorg/modules/drivers/intel-common
 %{_libdir}/xorg/modules/drivers/intel-common/intel_drv.*
 %{_mandir}/man4/intel.4*
-%{_mandir}/man4/intel-virtual-output.4*
 %{_libexecdir}/xf86-video-intel-backlight-helper
 %{_datadir}/polkit-1/actions/org.x.xf86-video-intel.backlight-helper.policy
