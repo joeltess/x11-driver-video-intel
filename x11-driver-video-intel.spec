@@ -12,7 +12,7 @@ URL:		http://xorg.freedesktop.org
 Release:        5
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2
 %else
-Release:	6.%{snapshot}.7
+Release:	6.%{snapshot}.8
 # rm -rf xf86-video-intel && git clone git://anongit.freedesktop.org/xorg/driver/xf86-video-intel && cd xf86-video-intel/
 # git archive --prefix=xf86-video-intel-$(date +%Y%m%d)/ --format=tar HEAD | xz > ../xf86-video-intel-$(date +%Y%m%d).tar.xz
 Source0:        xf86-video-intel-%{snapshot}.tar.xz
@@ -57,7 +57,7 @@ Obsoletes:	x11-driver-video-i810
 Obsoletes:	x11-driver-video-i810-downscaling
 Obsoletes:	x11-driver-video-intel-fast-i830
 # (tpg) this is needed to get vaapi works out of box
-Requires:	vaapi-driver-intel
+Requires:	libva-intel-driver
 Requires:	%{_lib}dri-drivers-intel
 
 %description
