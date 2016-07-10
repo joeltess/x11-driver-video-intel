@@ -85,10 +85,9 @@ CFLAGS="`echo %{optflags} |sed -e 's,-D_FORTIFY_SOURCE=2 -fstack-protector,,;s,-
     --enable-dri \
     --enable-sna \
     --enable-uxa\
-    --with-default-accel=sna \
+    --with-default-accel=uxa \
     --enable-kms-only \
-    --with-default-dri=3
-    
+    --with-default-dri=2
 
 %make
 
